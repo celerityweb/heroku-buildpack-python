@@ -85,6 +85,10 @@ bpwatch stop appdir_stage
 ORIG_BUILD_DIR=$BUILD_DIR
 BUILD_DIR=$APP_DIR
 
+# If there was an .apt in the original build dir, we need to remake a symlink
+# to it.
+test -d $BUILD_DIR/.apt && ln -s $BUILD_DIR/.apt $ORIG_BUILD_DIR/.apt
+
 # Prepend proper path buildpack use.
 export PATH=$BUILD_DIR/.heroku/python/bin:$BUILD_DIR/.heroku/vendor/bin:$PATH
 export PYTHONUNBUFFERED=1
