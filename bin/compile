@@ -200,7 +200,7 @@ bpwatch start post_compile
 bpwatch stop post_compile
 
 # Remove that symlink
-test -h $ORIG_BUILD_DIR/.app && rm $ORIG_BUILD_DIR/.app
+test -h $ORIG_BUILD_DIR/.apt && rm $ORIG_BUILD_DIR/.app
 
 # Store new artifacts in cache.
 bpwatch start dump_cache
